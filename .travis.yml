@@ -1,0 +1,22 @@
+  sudo: false
+  language: python
+  python:
+    - 3.6
+  matrix:
+    -python: 3.6
+    dist: xenial
+    sudo: true
+
+  install:
+    - pip install poetry
+    - poetry install -vvv
+
+  script:
+    - poetry run pytest -v
+    - poetry build
+
+  after_success:
+    - poetry run coveralls
+
+
+
