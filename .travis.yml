@@ -3,9 +3,11 @@
   python:
     - 3.6
   matrix:
-    -python: 3.6
-    dist: xenial
-    sudo: true
+      include:
+        - python: 3.6
+          dist: xenial
+          sudo: true
+
 
   install:
     - pip install poetry
