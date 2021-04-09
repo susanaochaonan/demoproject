@@ -16,7 +16,7 @@
   script:
     - poetry run coverage run --source=demoproject -m pytest -v
     - poetry run coverage report -m
-    - poetry build
+#    - poetry build
 
   after_success:
     - poetry run coveralls
