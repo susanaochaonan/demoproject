@@ -14,6 +14,7 @@
     - poetry install -vvv
 
   script:
+    - poetry run coverage run --source=demoproject -m pytest -v
     - poetry run coverage report -m
     - poetry build
 
