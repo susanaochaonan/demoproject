@@ -12,11 +12,11 @@
     - poetry install -vvv
 
   script:
-    - poetry run pytest -v
+    - poetry run coverage report -m
     - poetry build
 
-  after_success:
-    - poetry run coveralls
+#  after_success:
+#    - poetry run coveralls
 
 
 
