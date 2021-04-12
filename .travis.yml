@@ -20,6 +20,3 @@
 
   after_success:
     - poetry run coveralls
-
-
-
