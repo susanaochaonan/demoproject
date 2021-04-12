@@ -1,22 +1,18 @@
-  sudo: false
-  language: python
-  python:
-    - 3.6
-  matrix:
-      include:
-        - python: 3.6
-          dist: xenial
-          sudo: true
-
-
-  install:
-    - pip install poetry
-    - poetry install -vvv
-
-  script:
-    - poetry run coverage run --source=demoproject -m pytest -v
-    - poetry run coverage report -m
-#    - poetry build
-
-  after_success:
-    - poetry run coveralls
+sudo: false
+language: python
+python:
+  - 3.5
+  - 3.6
+matrix:
+  include: # Required for Python 3.7+
+    - python: 3.7
+      dist: xenial
+    - python: 3.8
+      dist: xenial
+install:
+  - pip install poetry
+  - poetry install -vvv
+script:
+  - poetry run coverage run --source=hogwarts_httprunner -m unittest discover
+  - poetry run coverage report
+  - poetry run coveralls
